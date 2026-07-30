@@ -18,6 +18,7 @@ A Cloudflare IP finder with a terminal UI and an Android app, built for networks
 
 *   **Cloudflare IP Scanning**: Quickly finds working Cloudflare IPs.
 *   **Terminal UI (TUI)**: Interactive menu-driven interface, no complex CLI flags.
+*   **Accessible mode**: Plain-text mode for screen readers (NVDA / JAWS) via `--accessible`.
 *   **Multi-Platform**: Linux, macOS, Windows, Android (APK & Termux).
 *   **Proxy Validation**: End-to-end testing of IPs using VLESS/Trojan configurations (via embedded Xray).
 *   **Neighbor Scan**: Explores nearby IPs in the same Cloudflare block for more hits.
@@ -45,6 +46,18 @@ Run `senpaiscanner` and you land in a short menu. Navigate with arrow keys and E
 Press **`c`** when a scan finishes to copy working `IP:port` endpoints to the clipboard and save them to `ips.txt` next to the binary (or current working directory).
 
 Your last scan settings are saved automatically. Use **Retry Last Scan** on the home screen to repeat the previous run without re-entering anything.
+
+### Accessible mode (screen readers)
+
+If you use a screen reader such as **NVDA** or **JAWS**, start the app with:
+
+```bash
+senpaiscanner --accessible
+```
+
+Aliases: `--simple`, `-a`
+
+This mode avoids the full-screen TUI and prints progress and results as plain text, one line at a time. You will be asked for a few settings (count, workers, timeout, port), then the scan runs and announces each healthy IP as it is found. Results are also saved to `accessible-results.txt`.
 
 ---
 
